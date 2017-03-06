@@ -1,16 +1,17 @@
 package pl.lodz.p.edu.ftims.service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import pl.lodz.p.edu.ftims.model.Person;
 
 public interface PersonService {
 
-    public int totalAge();
+    public int totalAge(List<Person> persons);
 
 
-    public ArrayList<Person> basicSortMethod(ArrayList<Person> pesons);
+    public ArrayList<Person> basicAgeSortMethod(ArrayList<Person> persons);
 
 
-    public ArrayList<Person> lambdaSortMethod(ArrayList<Person> pesons);
+    public ArrayList<Person> lambdaAgeSortMethod(ArrayList<Person> persons);
 }
