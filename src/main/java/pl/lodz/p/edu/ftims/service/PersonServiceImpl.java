@@ -32,4 +32,8 @@ public class PersonServiceImpl implements PersonService {
         return persons;
     }
 
+
+    public List<Person> getPersonList() {
+        return null;
+    }
 }

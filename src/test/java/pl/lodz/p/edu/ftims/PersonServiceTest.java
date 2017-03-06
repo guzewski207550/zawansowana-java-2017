@@ -1,69 +1,69 @@
 package pl.lodz.p.edu.ftims;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Matchers;
+import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
+import org.mockito.runners.MockitoJUnitRunner;
 
 import pl.lodz.p.edu.ftims.model.Person;
 import pl.lodz.p.edu.ftims.service.PersonService;
 import pl.lodz.p.edu.ftims.service.PersonServiceImpl;
 
+@RunWith(MockitoJUnitRunner.class)
 public class PersonServiceTest {
+
+    PersonService personService = Mockito.mock(PersonServiceImpl.class);
+
+
+    @SuppressWarnings("unchecked")
+    @Before
+    public void setUp() {
+        MockitoAnnotations.initMocks(this);
+
+        List<Person> personList = new ArrayList<>();
+        personList.add(new Person("Person_1", 5));
+        personList.add(new Person("Person_2", 6));
+        personList.add(new Person("Person_3", 2));
+
+        Mockito.when(personService.totalAge(Matchers.anyList())).thenCallRealMethod();
+        Mockito.when(personService.basicAgeSortMethod(Matchers.anyList())).thenCallRealMethod();
+        Mockito.when(personService.lambdaAgeSortMethod(Matchers.anyList())).thenCallRealMethod();
+
+        Mockito.when(personService.getPersonList()).thenReturn(personList);
+    }
+
 
     @Test
     public void ageCounterTest() {
-        List<Person> personList = new ArrayList<>();
-
-        personList.add(new Person("Person_1", 5));
-        personList.add(new Person("Person_2", 6));
-
-        PersonService personService = new PersonServiceImpl();
-
-        assertEquals(11, personService.totalAge(personList));
+        assertEquals(13, personService.totalAge(personService.getPersonList()));
     }
 
 
     @Test
     public void basicSortTest() {
-        List<Person> personList = new ArrayList<>();
+        List<Person> sortedPersonList = personService.basicAgeSortMethod(personService.getPersonList());
 
-        Person person1 = new Person("Person_1", 5);
-        Person person2 = new Person("Person_2", 6);
-        Person person3 = new Person("Person_3", 2);
-
-        personList.add(person1);
-        personList.add(person2);
-        personList.add(person3);
-
-        PersonService personService = new PersonServiceImpl();
-
-        List<Person> sortedPersonList = personService.basicAgeSortMethod(personList);
-
-        assertEquals(person3, sortedPersonList.get(0));
-        assertEquals(person2, sortedPersonList.get(2));
+        assertTrue(!sortedPersonList.isEmpty());
+        assertEquals(2, sortedPersonList.get(0).getAge());
+        assertEquals(6, sortedPersonList.get(2).getAge());
     }
 
 
     @Test
     public void lambdaSortTest() {
-        List<Person> personList = new ArrayList<>();
+        List<Person> sortedPersonList = personService.basicAgeSortMethod(personService.getPersonList());
 
-        Person person1 = new Person("Person_1", 5);
-        Person person2 = new Person("Person_2", 6);
-        Person person3 = new Person("Person_3", 2);
-
-        personList.add(person1);
-        personList.add(person2);
-        personList.add(person3);
-
-        PersonService personService = new PersonServiceImpl();
-
-        List<Person> sortedPersonList = personService.basicAgeSortMethod(personList);
-
-        assertEquals(person3, sortedPersonList.get(0));
-        assertEquals(person2, sortedPersonList.get(2));
+        assertTrue(!sortedPersonList.isEmpty());
+        assertEquals(2, sortedPersonList.get(0).getAge());
+        assertEquals(6, sortedPersonList.get(2).getAge());
     }
 }

@@ -13,4 +13,7 @@ public interface PersonService {
 
 
     public List<Person> lambdaAgeSortMethod(List<Person> persons);
+
+
+    public List<Person> getPersonList();
 }
