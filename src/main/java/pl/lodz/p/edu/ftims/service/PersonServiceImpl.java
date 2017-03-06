@@ -27,8 +27,9 @@ public class PersonServiceImpl implements PersonService {
 
 
     public List<Person> lambdaAgeSortMethod(List<Person> persons) {
-        // TODO Auto-generated method stub
-        return null;
+        persons.sort((Person o1, Person o2) -> o1.getAge() - o2.getAge());
+
+        return persons;
     }
 
 }
