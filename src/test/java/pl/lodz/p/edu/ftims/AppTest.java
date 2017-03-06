@@ -39,6 +39,6 @@ public class AppTest extends TestCase {
     public void TmpClassTest() {
         int value = 5;
         TmpClass tmpClass = new TmpClass();
-        assertEquals(value, tmpClass.OnlyForTest(value));
+        assertEquals(value + 1, tmpClass.OnlyForTest(value));
     }
 }
