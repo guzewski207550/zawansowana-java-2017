@@ -24,4 +24,23 @@ public class PersonServiceTest {
 
         assertEquals(11, personService.totalAge(personList));
     }
+
+
+    @Test
+    public void basicSortTest() {
+        List<Person> personList = new ArrayList<>();
+
+        Person person1 = new Person("Person_1", 5);
+        Person person2 = new Person("Person_2", 6);
+        Person person3 = new Person("Person_3", 2);
+
+        personList.add(person1);
+        personList.add(person2);
+        personList.add(person3);
+
+        PersonService personService = new PersonServiceImpl();
+
+        assertEquals(person3, personService.basicAgeSortMethod(personList).get(0));
+        assertEquals(person2, personService.basicAgeSortMethod(personList).get(2));
+    }
 }

@@ -1,6 +1,7 @@
 package pl.lodz.p.edu.ftims.service;
 
-import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import pl.lodz.p.edu.ftims.model.Person;
@@ -12,13 +13,20 @@ public class PersonServiceImpl implements PersonService {
     }
 
 
-    public ArrayList<Person> basicAgeSortMethod(ArrayList<Person> persons) {
+    public List<Person> basicAgeSortMethod(List<Person> persons) {
+        Collections.sort(persons, new Comparator<Person>() {
 
-        return null;
+            @Override
+            public int compare(Person o1, Person o2) {
+                return o1.getAge() - o2.getAge();
+            }
+        });
+
+        return persons;
     }
 
 
-    public ArrayList<Person> lambdaAgeSortMethod(ArrayList<Person> persons) {
+    public List<Person> lambdaAgeSortMethod(List<Person> persons) {
         // TODO Auto-generated method stub
         return null;
     }
