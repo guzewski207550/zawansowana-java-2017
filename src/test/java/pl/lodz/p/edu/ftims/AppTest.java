@@ -10,6 +10,6 @@ public class AppTest {
     public void TmpClassTest() {
         int value = 5;
         TmpClass tmpClass = new TmpClass();
-        assertEquals(value + 1, tmpClass.OnlyForTest(value));
+        assertEquals(value, tmpClass.OnlyForTest(value));
     }
 }
