@@ -3,3 +3,10 @@
 </a>
 # Zawansowane Zagadnienia Programowania w Javie
 > Jest to repozotorium przechowujące projekty wykonywane w ramach laboratorium z przedmiotu Zawansowane Zagadnienia Programowania w Javie.
+
+## Moduły:
+- **first-project**
+- **test-exercise**
+
+## Moduł "first-project":
+> W ramach tego modułu został wygenerowany nowy projekt mavenowy, wykorzystując polecenie `mvn archetype:generate -DgroupId=pl.lodz.p.edu.ftims -DartifactId=first-project -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`. Następnie projekt został przetworzony na prosty serwis, który posiada interfejs sumujący wiek użytkowników używając strumieni, oraz sortujący uczestników. Zaimplementowane zostały dwie metody sortujące - jedna tradycyjna oraz druga wykorzystująca wyrażenia lambda. Do zaimplementowanych metod zostały napisane testy jednostkowe oraz wykorzystane zostało "Mockito" w celu zmokowania listy użytkowników serwisu.
