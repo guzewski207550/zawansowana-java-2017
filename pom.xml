@@ -8,5 +8,6 @@
 	<modules>
 		<module>first-project</module>
 		<module>test-exercise</module>
+		<module>generics-collections</module>
 	</modules>
 </project>

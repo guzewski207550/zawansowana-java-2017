@@ -18,7 +18,6 @@ import pl.lodz.p.edu.ftims.model.Person;
 import pl.lodz.p.edu.ftims.service.PersonService;
 import pl.lodz.p.edu.ftims.service.PersonServiceImpl;
 
-@RunWith(MockitoJUnitRunner.class)
 public class PersonServiceTest {
 
     PersonService personService = Mockito.mock(PersonServiceImpl.class);
