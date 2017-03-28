@@ -2,7 +2,7 @@ package pl.lodz.p.edu.ftims.singly;
 
 public class Step {
 
-    protected String description;
+    private String description;
 
 
     public String getDescription() {
