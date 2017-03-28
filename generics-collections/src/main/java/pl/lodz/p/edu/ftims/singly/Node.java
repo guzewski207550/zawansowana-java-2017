@@ -1,6 +1,9 @@
 package pl.lodz.p.edu.ftims.singly;
 
+public class Node<E> {
 
-public class Node {
+    private Node<E> nextElement;
+
+    private E nodeContent;
 
 }
